@@ -12,7 +12,7 @@ exports.getDashboard = async (req, res) => {
     const total = allTasks.length;
     const completed = allTasks.filter(t => t.status === "completed").length;
     const pending = allTasks.filter(t => t.status === "pending").length;
-    const overdue = allTasks.filter(t => 
+    const overdue = allTasks.filter(t =>
       t.dueDate && new Date(t.dueDate) < new Date() && t.status !== "completed"
     ).length;
 
