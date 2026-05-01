@@ -21,6 +21,9 @@ app.use("/api/v1", projectRoutes);
 const taskRoutes = require("./routes/task");
 app.use("/api/v1", taskRoutes);
 
+const dashboardRoutes = require("./routes/dashboard");
+app.use("/api/v1", dashboardRoutes);
+
 app.get("/", (req,res)=>{
     res.send("Server is running");
 });
