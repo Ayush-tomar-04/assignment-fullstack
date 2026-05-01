@@ -10,10 +10,10 @@ exports.getDashboard = async (req, res) => {
     const allTasks = await Task.find(query);
 
     const total = allTasks.length;
-    const completed = allTasks.filter(t => t.status === "completed").length;
-    const pending = allTasks.filter(t => t.status === "pending").length;
+    const completed = allTasks.filter(t => t.status === "Done").length;
+    const pending = allTasks.filter(t => t.status === "Todo" || t.status === "In Progress").length;
     const overdue = allTasks.filter(t =>
-      t.dueDate && new Date(t.dueDate) < new Date() && t.status !== "completed"
+      t.deadline && new Date(t.deadline) < new Date() && t.status !== "Done"
     ).length;
 
     res.status(200).json({ total, completed, pending, overdue });
